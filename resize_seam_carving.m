@@ -7,6 +7,7 @@ function [final_main_image, final_energy_image] = resize_seam_carving(input_imag
     end_ind = round(percent * width);
     
     for i=1 : end_ind
+            i
         [final_main_image, final_energy_image] = seam_carving(final_main_image, final_energy_image, look_ahead);
     end    
 end
