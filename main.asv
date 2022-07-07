@@ -12,7 +12,7 @@ energy_image = extract_energy_map(input_image);
 
 imshow(energy_image, []);
 
-[final_main_image, final_energy_image] = resize_seam_carving(input_image, energy_image);
+final_image = resize_seam_carving(input_image, energy_image);
 
 
 

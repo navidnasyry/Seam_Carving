@@ -1,10 +1,10 @@
-function [final_image] = seam_carving(I_input,I_energy)
+function [new_main_image, new_energy_map] = seam_carving(I_input,I_energy)
 
 height = size(I_input, 1);
 width = size(I_input, 2);
-dp = zeros(height,width,1);
+dp = zeros(height, width, 1);
 % dp_indexes = strings(height,width,1);
-dp(1,:) = I_energy(1:);
+dp(1,:) = I_energy(1, :);
 
 
 for i=2 : height
