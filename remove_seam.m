@@ -20,6 +20,9 @@ function [new_main_image, new_energy_map] = remove_seam(dp, min_seam_ind, I_ener
     end
     
     imshow(I_input, []);
+    %pause(0.2);
+    %imshow(I_energy, []);
+    %(0.2);
 
 end
 

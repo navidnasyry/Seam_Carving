@@ -3,7 +3,7 @@ clear;
 close all;
 
 
-input_image = im2double(imread("Samples/Diana.png"));
+input_image = im2double(imread("Samples/Dolls.png"));
 important_images = dir("./help/1/");
 each_level_seam_carving_look_ahead = 1;
 
