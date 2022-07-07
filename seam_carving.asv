@@ -1,10 +1,9 @@
-function [final_image] = seam_carving(I_input,I_energy)
+function [new_main_image, new_energy_map] = seam_carving(I_input, I_energy)
 
 height = size(I_input, 1);
 width = size(I_input, 2);
-dp = zeros(height,width,1);
-% dp_indexes = strings(height,width,1);
-dp(1,:) = I_energy(1:);
+dp = zeros(height, width);
+dp(1,:) = I_energy(1, :);
 
 
 for i=2 : height
@@ -19,8 +18,8 @@ for i=2 : height
     end    
 end
 
-min_seam_ind = find(dp(end,:) == min(dp(end, :)));
-remove_seam(dp, min_seam_ind, 
+min_seam_ind = find(dp(end,:) == min(dp(end, :)), 1)
+[new_energy_map, new_main_image] = remove_seam(dp, min_seam_ind, I_energy, I_input, look_ahead);
 
 
 
