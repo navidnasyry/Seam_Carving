@@ -17,7 +17,7 @@ for i=2 : height
        end
     end    
 end
-imshow(dp, []);
+
 % find n% of minimum 
 min_seam_ind = find(dp(end,:) == min(dp(end, :)), 1);
 [new_main_image, new_energy_map] = remove_seam(dp, min_seam_ind, I_energy, I_input, look_ahead);

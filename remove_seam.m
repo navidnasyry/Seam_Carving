@@ -15,7 +15,7 @@ function [new_main_image, new_energy_map] = remove_seam(dp, min_seam_ind, I_ener
         
         if (i ~= 1)
             next_pix = find(dp(i-1, max([min_seam_ind - look_ahead, 1]) : min([min_seam_ind + look_ahead, width])) == min(dp(i-1, max([min_seam_ind - look_ahead, 1]) : min([min_seam_ind + look_ahead, width]))),1);
-            min_seam_ind = min_seam_ind - look_ahead - 1 + next_pix; % find next cell in seam  
+            min_seam_ind = max([min_seam_ind - look_ahead, 1]) - 1 + next_pix; % find next cell in seam  
         end        
     end
     
