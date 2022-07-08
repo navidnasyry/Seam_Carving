@@ -2,17 +2,32 @@ clc;
 clear;
 close all;
 
-image_name = "tower.jpg";
-input_image = im2double(imread("Samples/" + image_name));
+image_name = "Dolls.png";
+input_image = im2double(imread("./Samples/" + image_name));
+
+%find path of image screan shots for detect important part of image
 f_name = image_name.split(".");
-important_images = dir("./help/"+f_name(1)+"/");
+helpers_path = "./help/"+f_name(1)+"/";
+
+%read look ahead parameter
 each_level_seam_carving_look_ahead = 1; 
 
-final_energy_map = extract_energy_map(input_image);
+%The ratio of increasing the importance of the parts of the images that are input
+ratio = 20;
 
-[final_main_image, final_energy_image] = resize_seam_carving(input_image, final_energy_map, 0.5, each_level_seam_carving_look_ahead);
+%percent of resize
+resize_percent = 0.5;
 
+%find energy map 
+final_energy_map = extract_energy_map(input_image, helpers_path, ratio);
+
+%seam carving with final energy map
+[final_main_image, final_energy_image] = resize_seam_carving(input_image, final_energy_map, resize_percent, each_level_seam_carving_look_ahead);
+
+%show final resized image
 imshow(final_main_image, []);
+
+%save result image
 imwrite(final_main_image, "./output/"+"/"+"output_"+image_name);
 
 
