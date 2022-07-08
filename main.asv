@@ -4,8 +4,7 @@ close all;
 
 image_name = "tower.jpg";
 input_image = im2double(imread("Samples/" + image_name));
-f_name = image_name.split(".");
-important_images = dir("./help/"+f_name(1)+"/");
+important_images = dir("./help/"+image_name.split(');
 each_level_seam_carving_look_ahead = 1; 
 
 final_energy_map = extract_energy_map(input_image);
