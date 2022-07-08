@@ -27,7 +27,6 @@ function [output_energy] = energy_screan_shots(k, input_image, images_path, base
          output_energy(target_y : target_y+pic_h-1, target_x : target_x+pic_w-1) = output_energy(target_y : target_y+pic_h-1, target_x : target_x+pic_w-1) + k * base_energy(target_y : target_y+pic_h-1, target_x : target_x+pic_w-1);
          %output_energy(target_y : target_y+pic_h-1, target_x : target_x+pic_w-1) = output_energy(target_y : target_y+pic_h-1, target_x : target_x+pic_w-1) + mean(mean(output_energy));
 
-        
     end   
     
     

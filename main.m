@@ -2,12 +2,12 @@ clc;
 clear;
 close all;
 
-image_name = "Dolls.png";
+image_name = "Baby.png";
 input_image = im2double(imread("./Samples/" + image_name));
 
 %find path of image screan shots for detect important part of image
 f_name = image_name.split(".");
-helpers_path = "./help/"+f_name(1)+"/";
+helpers_path = "./helper/"+f_name(1)+"/";
 
 %read look ahead parameter
 each_level_seam_carving_look_ahead = 1; 
@@ -21,6 +21,9 @@ resize_percent = 0.5;
 %find energy map 
 final_energy_map = extract_energy_map(input_image, helpers_path, ratio);
 
+%write input energy map
+imwrite(final_energy_map, "./output/"+"/"+"energy_"+image_name);
+
 %seam carving with final energy map
 [final_main_image, final_energy_image] = resize_seam_carving(input_image, final_energy_map, resize_percent, each_level_seam_carving_look_ahead);
 
@@ -28,7 +31,7 @@ final_energy_map = extract_energy_map(input_image, helpers_path, ratio);
 imshow(final_main_image, []);
 
 %save result image
-imwrite(final_main_image, "./output/"+"/"+"output_"+image_name);
+imwrite(final_main_image, "./output/"+"/"+int2str(resize_percent*10)+"output_"+image_name);
 
 
 
