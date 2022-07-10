@@ -8,7 +8,7 @@ function total_energy_map = extract_energy_map(input_image, help_path, k, smap, 
     
     %imshow(gradient_energy_map, []);
     %pause(4);
-    base_energy = 0.5*gradient_energy_map + 0.1*smap + 0.8*dmap;
+    base_energy = 0.05*gradient_energy_map + 0.15*smap + 0.8*dmap;
 
     
     total_energy_map = 0.7*base_energy + 0.3*energy_screan_shots(k, input_image, help_path, base_energy);

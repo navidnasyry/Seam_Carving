@@ -2,7 +2,7 @@ clc;
 close all;  
 clear;  
 
-image_name = "Baby";
+image_name = "Diana";
 im_format = ".png";
 input_image = im2double(imread("./Samples/" + image_name + im_format));
 %grayImage = imread('pout.tif');

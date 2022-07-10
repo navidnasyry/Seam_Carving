@@ -2,7 +2,7 @@ clc;
 clear;
 close all;
 
-image_name = "Baby";
+image_name = "Diana";
 format = ".png";
 input_image = im2double(imread("./Samples/" + image_name + format));
 smap_image = im2double(imread("./Samples/" + image_name+ "_SMap" + format));
