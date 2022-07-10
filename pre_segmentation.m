@@ -5,7 +5,6 @@ clear;
 image_name = "Diana";
 im_format = ".png";
 input_image = im2double(imread("./Samples/" + image_name + im_format));
-%grayImage = imread('pout.tif');
 [rows, columns, numColorChannels] = size(input_image)
 imshow(input_image);
 numBandsVertically = 6;
@@ -30,15 +29,9 @@ for row = 1 : length(topRows) - 1
 	for col = 1 : length(leftColumns) - 1
 		col1 = leftColumns(col);
 		col2 = leftColumns(col + 1) - 1;
-		%subplot(numBandsVertically, numBandsHorizontally, plotCounter);
 		subImage = input_image(row1 : row2, col1 : col2, :);
 		imshow(subImage);
         imwrite(subImage, "./helper/" + image_name + "/seg_" + row + "_" + col+ im_format);
-		%caption = sprintf('Rows %d-%d, Columns %d-%d', row1, row2, col1, col2);
-		%title(caption);
-		%drawnow;
 		plotCounter = plotCounter + 1;
 	end
 end
-%hFig2.WindowState = 'Maximized';
-%fprintf('Done running %s.m.\n', mfilename);
