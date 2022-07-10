@@ -2,24 +2,16 @@ clc;
 close all;  
 clear;  
 
-format long g;
-format compact;
-fprintf('Beginning to run %s.m ...\n', mfilename);
-
-% Read in image
-
-image_name = "Diana";
+image_name = "Baby";
 im_format = ".png";
 input_image = im2double(imread("./Samples/" + image_name + im_format));
 %grayImage = imread('pout.tif');
 [rows, columns, numColorChannels] = size(input_image)
 imshow(input_image);
+numBandsVertically = 6;
+numBandsHorizontally = 6;
 
 
-axis on;
-impixelinfo
-numBandsVertically = 8;
-numBandsHorizontally = 8;
 topRows = round(linspace(1, rows+1, numBandsVertically + 1))
 leftColumns = round(linspace(1, columns+1, numBandsHorizontally + 1))
 % Draw lines over image
